@@ -19,7 +19,7 @@ public class Hipodromo {
 	public boolean addJoker(String jokerNome, String cavaloNome, int numero) {
 		for(int i=0; i<this.competidores.size(); i++) {
 			if(this.competidores.get(i).getNumeroDoJoker() == numero) {
-				System.out.println("Já existe um joker com este número, tente novamente!");
+				System.out.println("JÃ¡ existe um joker com este nÃºmero, tente novamente!");
 				return false;
 			}
 		}
@@ -36,32 +36,32 @@ public class Hipodromo {
 				return true;
 			}
 		}
-		System.out.println("Não existe competidor com o numero informado, tente novamente");
+		System.out.println("NÃ£o existe competidor com o numero informado, tente novamente");
 		return false;
 	}	
 
 
 	public boolean iniciarCorrida() {
 		if(this.competidores.size()!=0) {
-		Narrador.apresentar(this.competidores, this);
-		for(int i=0; i<this.competidores.size(); i++) {
-				double velocidade = (double) Math.ceil(Math.random() * (70 - 60 + 1)) - 1 + 60;
-				this.competidores.get(i).disputarCorrida(velocidade, this.distancia);
-			
-			}
-		Collections.sort(this.competidores, new Colocacao());
-		this.competidores.get(0).ganhouEmPrimeiro();
-		this.competidores.get(1).ganhouEmSegundo();
-		this.competidores.get(2).ganhouEmTerceiro();
-		return true;
+			Narrador.apresentar(this.competidores, this);
+			for(int i=0; i<this.competidores.size(); i++) {
+					double velocidade = (double) Math.ceil(Math.random() * (70 - 60 + 1)) - 1 + 60;
+					this.competidores.get(i).disputarCorrida(velocidade, this.distancia);
+
+				}
+			Collections.sort(this.competidores, new Colocacao());
+			this.competidores.get(0).ganhouEmPrimeiro();
+			this.competidores.get(1).ganhouEmSegundo();
+			this.competidores.get(2).ganhouEmTerceiro();
+			return true;
 		}else {
-		System.out.println("Não há corredores, voce deve cadastra-los");
-		return false;
+			System.out.println("NÃ£o hÃ¡ corredores, voce deve cadastra-los");
+			return false;
 		}
 	}
 	public boolean listarCompetidores() {
 		if(this.competidores.size()==0) {
-			System.out.println("Não há competidores cadastrados!");
+			System.out.println("NÃ£o hÃ¡ competidores cadastrados!");
 			return false;
 		}
 		for(int i=0; i<this.competidores.size(); i++) {
